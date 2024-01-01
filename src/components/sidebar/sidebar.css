@@ -1,0 +1,205 @@
+.sidebar{
+    height: calc(100vh - 60px);
+    position: fixed;
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--background);
+    right: -400px;
+    transition: all .3s;
+    top: 60px;
+    font-size: .9rem;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all .3s;
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.sidebar.active{
+    display: flex;
+    right: 0;
+}
+.sidebar .title-wrapper{
+    display: flex;
+    padding: 24px;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-on-background);
+    gap: 16px;
+}
+.sidebar .text-filter{
+    margin-inline-end: auto;
+}
+.sidebar .close-btn{
+    margin: -8px;
+    background: none;
+    color: var(--text-on-background);
+    cursor: pointer;
+}
+.sidebar .filter-content{
+    flex-grow: 1;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+    padding-block-end: 16px;
+}
+.sidebar .search-wrapper{
+    padding: 12px 15px;
+}
+.sidebar .accordion-btn{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    padding: 10px 15px;
+    background: none;
+    color: var(--text-on-background);
+    cursor: pointer;
+}
+.sidebar .accordion-btn:hover{
+    background-color: var(--alpha-10);
+}
+.sidebar .labelhead{
+    margin-inline-end: auto;
+    font-size: .9rem;
+}
+.sidebar .accordion-content{
+    padding-inline: 15px;
+    display: grid;
+    grid-template-rows: 0fr;
+
+}
+.sidebar .accordion-content [data-filter]{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    gap: 10px;
+    transition: all .3s;
+}
+.sidebar .accordion-btn[aria-expanded="true"]{
+    background-color: var(--alpha-10);
+    margin-bottom: 10px;
+}
+.sidebar .accordion-btn[aria-expanded="false"] .icon{
+    transform: rotate(0deg);
+    transition: all .8s;
+}
+.sidebar .accordion-btn[aria-expanded="true"] .icon{
+    transform: rotate(180deg);
+    transition: all .8s;
+}
+.sidebar .accordion-btn[aria-expanded="true"]~ .accordion-content {
+    grid-template-rows: 1fr;
+}
+.sidebar .filter-content::-webkit-scrollbar {display: none;}
+.sidebar .input-outline{
+    position: relative;
+    box-shadow: inset 0 0 0 1px var(--input-outline);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    padding-right: 10px;
+    transition: all .3s;
+}
+.sidebar .input-outline:hover{
+    box-shadow: inset 0 0 0 1px var(--primary);
+}
+.sidebar .input-outline:has(:focus, input:not(:placeholder-shown)){
+    box-shadow: inset 0 0 0 1px var(--primary);
+}
+.sidebar .filter-search{
+    height: 40px;
+    outline: none;
+    padding-inline: 16px;
+    color: var(--text-on-background);
+}
+.sidebar .filter-search:focus::placeholder{
+    opacity: .7;
+}
+.sidebar .filter-search::placeholder{
+    opacity: 0;
+}
+.sidebar .input-outline .label{
+    position: absolute;
+    left: 16px;
+    opacity: .7;
+    background-color: var(--background);
+    padding: 0 4px;
+    margin-inline: 4px;
+    pointer-events: none;
+    transition: all .3s;
+    color: var(--text-on-background);
+}
+.sidebar .input-outline:has(:focus, input:not(:placeholder-shown)) .label{
+    color: var(--primary);
+    transform: translateY(-21px) scale(0.8);
+    transform-origin: left center;
+    opacity: 1;
+}
+.sidebar .filter-chip{
+    height: 32px;
+    background-color: var(--background);
+    border: 1px solid var(--outline);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 16px;
+    border-radius: 8px;
+    color: var(--text-on-background);
+    user-select: none;
+    font-size: .8rem;
+    cursor: pointer;
+}
+.sidebar .filter-chip .checkbox{
+    appearance: none;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    opacity: 0;
+}
+.sidebar .filter-chip:hover{
+    background-color: var(--active-indicator);
+}
+.sidebar .filter-chip:has(:focus-visible){
+    box-shadow: inset 0 0 0 1px var(--primary);
+}
+.sidebar .filter-chip:has(:focus-visible){
+    box-shadow: inset 0 0 0 1px var(--primary);
+}
+.sidebar .filter-chip:has(:checked){
+    background-color: var(--badge-btn);
+    border-color: var(--badge-btn);
+}
+.sidebar .filter-actions{
+    display: flex;
+    gap: 12px;
+    padding: 20px;
+    border: 1px solid var(--outline);
+}
+.sidebar .filter-actions button{
+    width: 100%;
+    border: 1px solid var(--outline);
+    color: var(--text-on-background);
+    padding: 12px;
+    border-radius: 4px;
+    background: none;
+    font-size: .9rem;
+    font-weight: 700;
+    transition: all .3s;
+}
+.sidebar .filter-actions button.apply{
+    border: none;
+    background-color: var(--primary);
+    color: white;
+}
+.sidebar .filter-actions button.apply:hover{
+    background-color: var(--primary-hover);
+}
+.sidebar .filter-actions button:hover{
+    border: 1px solid var(--primary);
+}

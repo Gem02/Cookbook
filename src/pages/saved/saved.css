@@ -1,0 +1,24 @@
+.likedrecipe{
+    padding-top: 80px;
+    background-color: var(--background);
+    min-height: 70vh;
+}
+
+.likedrecipe .likedrecipeheading{
+    color: var(--primary);
+}
+.likedrecipe .likerecipetext{
+    font-size: .9rem;
+    color: var(--text-on-background);
+}
+.likedrecipe .likedrecipelist{
+    margin: 40px 0 ;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+@media screen and (max-width:450px) {
+    .likedrecipe .likedrecipelist{
+        justify-content: center;
+    }
+}

@@ -1,0 +1,82 @@
+.footer{
+    background-color: rgb(5, 5, 5);
+}
+.footer .logo{
+    font-weight: 200;
+    font-size: 2rem;
+    color: rgb(187, 186, 186);
+}
+.footer .logo strong{
+    color: var(--primary);
+    font-weight: 900;
+}
+.footer .content .buttom{
+    color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+.footer .content .flex.recipes{
+    margin-top: 10px;
+    font-size: .9rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.footer .content .flex.recipes p{
+    transition: all .3s;
+    cursor: pointer;
+    color: rgb(219, 216, 216);
+}
+.footer .content .flex.recipes p:hover{
+    color: var(--primary);
+}
+.footer .buttom .iconfa{
+    font-size: 1.5rem;
+}
+.last{
+    gap: 5px;
+    background: rgb(20, 20, 20);
+    padding: 10px;
+    color: gray;
+    display: flex;
+    font-size: .9rem;
+    justify-content: center;
+    margin-top: 20px;
+}
+.last .flex{
+    display: flex;
+    color: white;
+}
+.buttom a{
+    color: white;
+    font-size: 17px;
+}
+
+@media screen and (max-width: 650px) {
+    .footer .logo{
+        font-size: 1.5rem;
+    }
+    .footer .buttom .iconfa{
+        font-size: 1.2rem;
+    }
+}
+@media screen and (max-width: 450px) {
+    .footer .logo{
+        font-size: 1.3rem;
+    }
+    .footer .buttom .iconfa{
+        font-size: 1rem;
+    }
+    .last{
+        font-size: .8rem;
+    }
+    .footer .content .flex.recipes{
+        flex-direction: column;
+        margin-block-end: auto;
+    }
+}

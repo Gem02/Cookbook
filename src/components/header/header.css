@@ -1,0 +1,57 @@
+.header{
+    width: 100%;
+    background-color: var(--background);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px;
+    position: fixed;
+    top: 0;
+    height: 60px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+
+}
+.header .logo{
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+.header .logo strong{
+    font-weight: 700;
+}
+.headerflex{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.header .liked{
+    background-color: var(--primary);
+    padding: 10px 20px;
+    color: white;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .3s;
+}
+.header .liked:hover{
+    background-color: var(--primary-hover);
+}
+.header button{
+    background-color: rgb(34, 33, 33);
+    color: rgb(255, 255, 255);
+}
+@media screen and (max-width:650px) {
+    .header{
+        padding: 30px 20px;
+    }
+}
+@media screen and (max-width:450px) {
+    .header .logo{
+        font-size: 1.2rem;
+    }
+    .header .liked{
+        display: none;
+    }
+    .headerflex{
+        gap: 5px;
+    }
+}

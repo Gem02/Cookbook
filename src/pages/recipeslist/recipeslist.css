@@ -1,0 +1,29 @@
+.alllistSec{
+    padding-top: 80px;
+}
+.alllistSec .title h1{
+    color: var(--primary);
+    margin: 10px 0;
+    font-size: 2rem;
+}
+.alllistSec .title .flex{
+    color: gray;
+    font-size: .9rem;
+    margin-bottom: 10px;
+}
+.alllistSec .title .flex p{
+    color: var(--text-on-background);
+    font-weight: 600;
+}
+.alllistSec .alllist{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+@media screen and (max-width: 650px) {
+    .alllistSec .title h1{
+        font-size: 1.5rem;
+    }
+}

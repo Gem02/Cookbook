@@ -1,0 +1,96 @@
+
+:root{
+    --background: hsl(0, 0%, 100%);
+    --text-on-background: hsl(0, 3%, 13%);
+    --on-background-variant: hsl(20, 3%, 19%);
+    --primary: hsl(11, 87%, 59%);
+    --primary-hover: hsl(11, 60%, 50%);
+    --primary-container: hsl(14, 57%, 95%);
+    --error: hsl(1, 73%, 42%);
+    --active-indicator: hsl(12, 58%, 88%);
+    --image-background: hsl(0, 0%, 70%);
+    --badge-btn: hsl(30, 58%, 88%);
+    --on-badge-btn: hsl(24, 7%, 14%);
+    --outline: hsl(10, 19%, 88%);
+    --input-outline: hsl(7, 7%, 73%);
+    --input-outline-hover: hsl(9, 3%, 52%);
+    --alpha-10: hsla(0, 0%, 0%, 0.1);
+    --alpha-20: hsla(0, 0%, 0%, 0.2);
+}
+
+*,
+*::before,
+*::after{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+body.dark{
+    --background: hsl(0, 0%, 10%);
+    --text-on-background: hsl(11, 3%, 87%);
+    --on-background-variant: hsl(11, 3%, 81%);
+    --primary: hsl(11, 87%, 64%);
+    --primary-hover: hsl(11, 51%, 51%);
+    --primary-container: hsl(15, 3%, 15%);
+    --error: hsl(1, 69%, 59%);
+    --active-indicator: hsl(15, 25%, 22%);
+    --image-background: hsl(0, 0%, 30%);
+    --badge-btn: hsl(30, 28%, 13%);
+    --on-badge-btn: hsl(30, 8%, 86%);
+    --outline: hsl(11, 3%, 20%);
+    --input-outline: hsl(11, 3%, 29%);
+    --input-outline-hover: hsl(0, 4%, 58%);
+    --alpha-10: hsla(0, 0%, 100%, 0.1);
+    --alpha-20: hsla(0, 0%, 100%, 0.2);
+  }
+
+  a,
+  li{
+    list-style: none;
+    text-decoration: none;
+    color: var(--text-on-background);
+  }
+  button,
+  input{
+    background: none;
+    border: none;
+  }
+
+  input:focus{
+    outline: none;
+    border-color: transparent;
+  }
+  .clickicon{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+  }
+
+  section{
+    padding: 20px 10%;
+    background-color: var(--background);
+  }
+
+  @media screen and (max-width: 1200px){
+    section{
+      padding: 20px 5%;
+    }
+  }
+
+  @media screen and (max-width: 250px){
+    .clickicon{
+      height: 30px;
+      width: 30px;
+    }
+  }
+  @media screen and (max-width: 500px){
+    section{
+      padding: 15px;
+    }
+  }

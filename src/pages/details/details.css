@@ -1,0 +1,150 @@
+.details{
+    display: flex;
+    padding-top: 80px;
+    background-color: var(--background);
+    overflow: hidden;
+}
+.details .imageholder{
+    border-radius: 5px;
+    width: 500px;
+}
+.details .imageholder img{
+    width: 500px;
+    border-radius: 5px;
+}
+.details .maindetails{
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.details .maindetails .mainhead{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    font-size: 2rem;
+    -webkit-line-clamp: 2;
+    font-family: 'DM Serif Display', 'serif';
+    overflow-x: hidden;
+    color: var(--text-on-background);
+
+}
+.details .maindetails .category{
+    background-color: var(--primary-container);
+    font-size: .8rem;
+    color: var(--text-on-background);
+    margin: 10px 0;
+    text-transform: uppercase;
+    width: 150px;
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+.details .maindetails .foodinfo{
+    font-size: .7rem;
+    color: var(--primary);
+    font-weight: 600;
+    letter-spacing: 5px;
+}
+.details .maindetails .innerdetails{
+    display: flex;
+    margin: 10px 0;
+}
+.details .maindetails .innerdiv{
+    padding: 5px 20px;
+    border-right: 1px solid var(--input-outline-hover);
+    text-align: center;
+}
+.details .maindetails .innerdiv:last-child{
+    border-right: none;
+}
+.details .maindetails .innerdiv h2{
+    font-size: 1.8rem;
+    color: var(--text-on-background);
+}
+.details .maindetails .innerdiv span{
+    font-size: .8rem;
+    color: var(--text-on-background);
+}
+.details .maindetails .innerdiv p{
+    font-size: .8rem;
+    margin-top: 5px;
+    color: var(--primary);
+}
+
+.details-secondpart{
+    display: flex;
+    margin-top: 30px;
+    gap: 20px;
+}
+.details-secondpart .detailsdec{
+    width: fit-content;
+    padding: 20px;
+}
+.details-secondpart .detailsdec:last-child{
+    background-color: var(--primary-container);
+}
+.details-secondpart .detailsdec h2{
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 1.7rem;
+}
+.details-secondpart .detailsdec p{
+    font-size: .9rem;
+    color: var(--text-on-background);
+}
+.details-secondpart ol li{
+    list-style: square;
+    margin: 10px 0;
+}
+
+@media screen and (max-width: 1100px) {
+    .details .imageholder{
+        width: 400px;
+    }
+    .details .imageholder img{
+        width: 400px;
+    }
+    .details .maindetails .innerdiv{
+        padding: 5px 10px;
+    }
+    
+}
+@media screen and (max-width: 800px){
+    .details{
+        flex-direction: column;
+    }
+    .details-secondpart{
+        flex-direction: column;
+        margin-top: 0px;
+        gap:10px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .details{
+        margin-top: 60px;
+    }
+    .details .imageholder{
+        width: 100%;
+    }
+    .details .imageholder img{
+        width: 100%;
+    }
+    .details .maindetails{
+        padding: 5px;
+    }
+    .details .maindetails .mainhead{
+        font-size: 1.5rem;
+    }
+    .details .maindetails .category{
+        font-size: .7rem;
+    }
+    .details .maindetails .innerdiv h2{
+        font-size: 1.5rem;
+    }
+    .details .maindetails .innerdiv p{
+        font-size: .7rem;
+        width: max-content;
+        margin-top: 5px;
+        color: var(--primary);
+    }
+}

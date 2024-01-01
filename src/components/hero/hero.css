@@ -1,0 +1,63 @@
+.hero{
+    background-color: var(--image-background);
+    background-image: url('../../assets/images/hero-banner-large.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-size: cover;
+    width: 100%;
+}
+.hero .middle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 500px;
+    margin-top: 40px;
+}
+.hero .middle h1{
+    color: rgb(240, 238, 238);
+    font-size: 2.4rem;
+    text-align: center;
+}
+.hero .herosearch{
+    display: flex;
+    width: 95%;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 20px;
+    max-width: 600px;
+    min-width: 300px;
+    height: 50px;
+    background-color: #353535;
+}
+.hero .herosearch input{
+    width: 100%;
+    border: none;
+    height: 100%;
+    color: white;
+    font-size: 1.1rem;
+}
+.hero .herosearch input:active{
+    border: none;
+}
+.hero .middle .text{
+    color: rgba(255, 255, 255, 0.575);
+    font-size: .8rem;
+}
+.hero .clickicon{
+    background: none;
+    color: rgb(236, 235, 235);
+}
+
+@media screen and (max-width: 1200px){
+    .hero{
+        background-image: url('../../assets/images/hero-banner-medium.jpg');
+    }
+}
+@media screen and (max-width: 500px) {
+    .hero .herosearch input{
+        font-size: .9rem;
+    }
+}
