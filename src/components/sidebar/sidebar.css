@@ -1,5 +1,5 @@
 .sidebar{
-    height: calc(100vh - 60px);
+    height: calc(100dvh - 60px);
     position: fixed;
     width: 100%;
     max-width: 400px;
@@ -11,7 +11,6 @@
     display: none;
     flex-direction: column;
     overflow: hidden;
-    transition: all .3s;
     z-index: 10;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
@@ -56,6 +55,10 @@
     background: none;
     color: var(--text-on-background);
     cursor: pointer;
+}
+.sidebar a.accordion-btn{
+    padding: 0;
+    background: none;
 }
 .sidebar .accordion-btn:hover{
     background-color: var(--alpha-10);
@@ -109,20 +112,15 @@
 .sidebar .input-outline:hover{
     box-shadow: inset 0 0 0 1px var(--primary);
 }
-.sidebar .input-outline:has(:focus, input:not(:placeholder-shown)){
+.sidebar .input-outline:has(:focus){
     box-shadow: inset 0 0 0 1px var(--primary);
 }
 .sidebar .filter-search{
     height: 40px;
+    width: 100%;
     outline: none;
     padding-inline: 16px;
     color: var(--text-on-background);
-}
-.sidebar .filter-search:focus::placeholder{
-    opacity: .7;
-}
-.sidebar .filter-search::placeholder{
-    opacity: 0;
 }
 .sidebar .input-outline .label{
     position: absolute;

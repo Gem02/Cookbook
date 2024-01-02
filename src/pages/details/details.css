@@ -1,6 +1,5 @@
 .details{
     display: flex;
-    padding-top: 80px;
     background-color: var(--background);
     overflow: hidden;
 }

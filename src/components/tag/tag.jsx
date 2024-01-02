@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './tag.css';
 
 const Tags = () =>{
@@ -8,37 +9,37 @@ const Tags = () =>{
                 <p>Choosing your health preference is an important step towards achieving a healthier lifestyle. </p>
             </div>
             <div className='tag-list'>
-                <a className='tagitem' >Wheat-Free</a>
+                <Link to ='/recipes/wheat-free' className='tagitem' >Wheat-Free</Link>
 
-                <a className='tagitem'>Vegetarian</a>
+                <Link to={'/recipes/vegetarian'} className='tagitem'>Vegetarian</Link>
 
-                <a className='tagitem'>Vegan</a>
+                <Link to={'/recipes/vegan'} className='tagitem'>Vegan</Link>
 
-                <a className='tagitem'>Tree-nut-free</a>
+                <Link to={'/recipes/free-nut-free'} className='tagitem'>Tree-nut-free</Link>
 
-                <a className='tagitem'>Sulfite-free</a>
+                <Link to={'/recipes/sulfite-free'} className='tagitem'>Sulfite-free</Link>
 
-                <a className='tagitem'>Sugar-conscious</a>
+                <Link to={'/recipes/sugar-conscious'} className='tagitem'>Sugar-conscious</Link>
 
-                <a className='tagitem'>Soy-free</a>
+                <Link to={'/recipes/soy-free'} className='tagitem'>Soy-free</Link>
 
-                <a className='tagitem'>Shellfish-free</a>
+                <Link to={'/recipes/shellfish-free'} className='tagitem'>Shellfish-free</Link>
 
-                <a className='tagitem'>Sesame-free</a>
+                <Link to={'/recipes/sesame-free'} className='tagitem'>Sesame-free</Link>
 
-                <a className='tagitem'>Red-meat-free</a>
+                <Link to={'/recipes/red-meat-free'} className='tagitem'>Red-meat-free</Link>
 
-                <a className='tagitem'>Pork-free</a>
+                <Link to={'/recipes/pork-free'} className='tagitem'>Pork-free</Link>
 
-                <a className='tagitem'>pecatarian</a>
+                <Link to={'/recipes/pecatarian'} className='tagitem'>pecatarian</Link>
 
-                <a className='tagitem'>Peanut-free</a>
+                <Link to={'/recipes/peanut-free'} className='tagitem'>Peanut-free</Link>
 
-                <a className='tagitem'>Paleo</a>
+                <Link to={'/recipes/paleo'} className='tagitem'>Paleo</Link>
 
-                <a className='tagitem'>No-oil-added</a>
+                <Link to={'/recipes/no-oil-added'} className='tagitem'>No-oil-added</Link>
 
-                <a className='tagitem'>Mustard-free</a>
+                <Link to={'/recipes/mustard-free'} className='tagitem'>Mustard-free</Link>
             </div>
         </section>
     )

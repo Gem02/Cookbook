@@ -3,10 +3,10 @@ import { GoFilter } from 'react-icons/go';
 import { MdClose, MdOutlineKeyboardArrowDown, MdBookmark } from 'react-icons/md';
 import { FaRegClock } from 'react-icons/fa';
 import { GiSpoon } from 'react-icons/gi';
-import { BiFoodMenu } from 'react-icons/bi';
+import { BiFoodMenu, BiHome } from 'react-icons/bi';
 import {BsSearch } from 'react-icons/bs';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const Sidebar = ({menu, setMenu}) =>{
     
@@ -19,11 +19,20 @@ export const Sidebar = ({menu, setMenu}) =>{
 
     const handleSearch = () =>{
         if (searchTerm !== '') {
-            setMenu(false)
+            setMenu(false);
             navigate(`/recipes/${searchTerm}`);
         }
     }
     
+    const redirect = () =>{
+        setMenu(false);
+        navigate(`/saved`);
+    }
+
+    const gohome = () =>{
+        setMenu(false);
+        navigate(`/`);
+    }
     
     return (
         <div>
@@ -40,18 +49,26 @@ export const Sidebar = ({menu, setMenu}) =>{
 
                     <div className='search-wrapper'>
                         <div className='input-outline'>
-                            <label for='search' name='search' className='label'>Search</label>
                             <input type='search' name='search' value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} id='search' placeholder='Search a recipe' className='filter-search' />
                             <BsSearch size={'20px'} color='gray' onClick={handleSearch}/>
                         </div>
                     </div>
 
-                    <div className='accordion-container' data-accordion>
+                    <div className='accordion-container' onClick={gohome} data-accordion>
 
-                        <button  className='accordion-btn' onClick={() => setToggleCookTime((current) => !current)}>
-                            <MdBookmark size={'20px'}/>
-                            <p className='labelhead'>Saved Recipes</p>
-                            <span className='icon'></span>
+                        <button  className='accordion-btn' >
+                                <BiHome size={'20px'}/>
+                                <p className='labelhead' >Home</p>
+                                <span className='icon'></span>
+                        </button>
+                    </div>
+
+                    <div className='accordion-container' onClick={redirect} data-accordion>
+
+                        <button  className='accordion-btn' >
+                                <MdBookmark size={'20px'}/>
+                                <p className='labelhead' >Saved Recipes</p>
+                                <span className='icon'></span>
                         </button>
                     </div>
 
