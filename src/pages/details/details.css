@@ -51,6 +51,9 @@
     padding: 5px 20px;
     border-right: 1px solid var(--input-outline-hover);
     text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 .details .maindetails .innerdiv:last-child{
     border-right: none;
@@ -78,6 +81,27 @@
     width: fit-content;
     padding: 20px;
 }
+.details-secondpart .detailsdec .ingrP{
+    margin: 15px 0;
+}
+.details-secondpart .detailsdec .healths{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+}
+.details-secondpart .detailsdec .healths .icon{
+    font-size: 20px;
+}
+.details-secondpart .detailsdec .healths p{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px;
+    background-color: var(--background);
+    margin: 0;
+    border-radius: 15px;
+}
 .details-secondpart .detailsdec:last-child{
     background-color: var(--primary-container);
 }
@@ -89,10 +113,6 @@
 .details-secondpart .detailsdec p{
     font-size: .9rem;
     color: var(--text-on-background);
-}
-.details-secondpart ol li{
-    list-style: square;
-    margin: 10px 0;
 }
 
 @media screen and (max-width: 1100px) {

@@ -1,29 +1,12 @@
-import './recipeslist.css';
+import './taglist.css';
 import { Card } from '../../components/foodcard/foodcard';
 import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const RecipesList = () =>{
+const TagList = () =>{
 
-    const { text } = useParams();
-    let param;
-
-    if (text ==='easy') {
-        param = '&ingr=2-5';
-
-    }else if(text === 'moderate'){
-        param = '&ingr=6-15';
-
-    }else if(text === 'difficult'){
-        param = '&ingr=16%2B';
-
-    }else if(text ==='all'){
-        param = `q=${text}`;
-    }else{
-        param = `q=${text}`;
-    }
-
+    const { tag } = useParams();
 
     const [individualRecipe, setIndividualRecipe] = useState([]);
 
@@ -34,18 +17,18 @@ const RecipesList = () =>{
 
         const fetchindividual = async () =>{
             try {
-                const response = await axios.get(`https://api.edamam.com/search?q=${param}&app_id=${api_id}&app_key=${api_key}&from=0&to=20`);
+                const response = await axios.get(`https://api.edamam.com/search?q=&health=${tag}&app_id=${api_id}&app_key=${api_key}&from=0&to=20`);
                 setIndividualRecipe(response.data.hits);
             } catch (error) {
-                console.error('Error fetching recipe', error);
+                console.log('Error fetching recipe', error);
             }
             
         }
 
         fetchindividual();
-    }, [text])
+    }, [tag])
 
-const saveRecipe = ({image, label, time, link}) =>{
+/* const saveRecipe = ({image, label, time, link}) =>{
     if (individualRecipe) {
 
         const saveThis = {
@@ -60,14 +43,14 @@ const saveRecipe = ({image, label, time, link}) =>{
 
         localStorage.setItem('saveThis', JSON.stringify(newRecipes))
     }
-}
+} */
     return(
         <section className='alllistSec'>
             <div className='title'>
                 <h1>Home of recipes</h1>
                 <div className='flex'>
                     <span>Search result for:</span>
-                    <p>{ text }</p>
+                    <p>{ tag }</p>
                 </div>
                 
             </div>
@@ -80,4 +63,4 @@ const saveRecipe = ({image, label, time, link}) =>{
         </section>
     )
 }
-export default RecipesList
+export default TagList;

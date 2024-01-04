@@ -27,12 +27,12 @@
     gap: 20px;
     justify-content: center;
 }
-.footer .content .flex.recipes p{
+.footer .content .flex.recipes a{
     transition: all .3s;
     cursor: pointer;
     color: rgb(219, 216, 216);
 }
-.footer .content .flex.recipes p:hover{
+.footer .content .flex.recipes a:hover{
     color: var(--primary);
 }
 .footer .buttom .iconfa{

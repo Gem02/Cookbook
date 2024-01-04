@@ -47,8 +47,7 @@ import { Sidebar } from '../sidebar/sidebar';
             <div className='header'>
             <Link to={"/"} ><div className='logo'><p>COOK<strong>BOOK</strong></p></div></Link>
                 <div className='headerflex'>
-                    <Link to={"/saved"} ><p className='liked'>Saved Recipies</p></Link>
-                    <button className='clickicon' onClick={changeTheme} >{dark ? <PiSun /> : <PiMoon /> }</button>
+                   <button className='clickicon' onClick={changeTheme} >{dark ? <PiSun /> : <PiMoon /> }</button>
                     <button className='clickicon' onClick={() => setMenu((current) => !current)}><TbMenu /></button>
                 </div>
             </div>

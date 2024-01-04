@@ -1,29 +1,58 @@
 import './details.css';
-import Photo from '../../assets/images/coffee-3120750_1280.jpg';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { BsPatchCheck } from 'react-icons/bs';
+import { AiFillPushpin } from 'react-icons/ai'
 
 const Details = () =>{
+
+    const { id } = useParams();
+    const [details, setDetails] = useState([]);
+
+    useEffect(() =>{
+
+        const api_id = "e3f53a21";
+        const api_key = "6e3eab68a7c2c5517527aeff313a93d7";
+
+        const fetchdetails = async () =>{
+            try {
+
+                const response = await axios.get(`https://api.edamam.com/api/recipes/v2/${id}?app_id=${api_id}&app_key=${api_key}&type=public`);
+                
+                setDetails(response.data);
+                
+            } catch (error) {
+                console.log('Unable to fetch recipes', error);
+            }
+        }
+
+        fetchdetails();
+    }, [id]);
+
+
     return(
         <section>
             <div className='details'>
-                <div className='imageholder'><img src={Photo} alt='japan tea'></img></div>
+                <div className='imageholder'><img src={details?.recipe?.image} alt='japan tea'></img></div>
                 <div className='maindetails'>
-                    <h1 className='mainhead'>japan special and shifu rich coffe for special occations and other bla bla bla rubish
+                    <h1 className='mainhead'>{details?.recipe?.label}
                     </h1>
-                    <span className='category'>Breakfast</span>
+                    <span className='category'>{details?.recipe?.mealType}</span>
                     <p className='foodinfo'>FOOD INFO</p>
                     <div className='innerdetails'>
                         <div className='innerdiv'>
-                            <h2>16</h2>
+                            <h2>{details?.recipe?.totalTime}</h2>
                             <span>Mins</span>
                             <p>COOK TIME</p>
                         </div>
                         <div className='innerdiv'>
-                            <h2>231</h2>
-                            <span>KCAL</span>
+                            <h2>{details?.recipe?.calories.toFixed(1)}</h2>
+                            <span>CAL</span>
                             <p>CALORIES</p>
                         </div>
                         <div className='innerdiv'>
-                            <h2>6</h2>
+                            <h2>{details?.recipe?.ingredients?.length}</h2>
                             <span>ITEMS</span>
                             <p>INGREDIENTS</p>
                         </div>
@@ -33,36 +62,30 @@ const Details = () =>{
             <div className='details-secondpart'>
                 <div className='detailsdec'>
                     <h2>Ingredients</h2>
-                    <ol>
-                        <li>Water yes water</li>
-                        <li>Sugar</li>
-                        <li>Milo please use the one from japan</li>
-                        <li>Milk even peak milk can do</li>
-                        <li>Cloves. Some people no knw am shaa </li>
-                        <li>others...</li>
-                    </ol>
+                        {
+                            details?.recipe?.ingredientLines.map((ingredient, index) =>{
+                                return(
+                                    <p className='ingrP' key={index}>
+                                    <AiFillPushpin className='icon' /> {ingredient}</p>
+                                )
+                        })
+                        }
                 </div>
                 <div className='detailsdec'>
-                    <h2>Procedures</h2>
-                        <p>Water with the chemical formula (H2O) is a universal solvent due to the presence of
-                        Hydrogen bonding and its polarity. This is as a result of high electro negativity of the Oxygen
-                        atom which pulls the shared electron pair to it, thereby making the Hydrogen atom partially
-                        positive and the Oxygen partially negative.
-                        Water with the chemical formula (H2O) is a universal solvent due to the presence of
-                        Hydrogen bonding and its polarity. This is as a result of high electro negativity of the Oxygen
-                        atom which pulls the shared electron pair to it, thereby making the Hydrogen atom partially
-                        positive and the Oxygen partially negative.
-                        Water with the chemical formula (H2O) is a universal solvent due to the presence of
-                        Hydrogen bonding and its polarity. This is as a result of high electro negativity of the Oxygen
-                        atom which pulls the shared electron pair to it, thereby making the Hydrogen atom partially
-                        positive and the Oxygen partially negative.
-                        Water with the chemical formula (H2O) is a universal solvent due to the presence of
-                        Hydrogen bonding and its polarity. This is as a result of high electro negativity of the Oxygen
-                        atom which pulls the shared electron pair to it, thereby making the Hydrogen atom partially
-                        positive and the Oxygen partially negative.
-                    </p>
-                </div>
-                
+                    <h2>Health labels</h2>
+                    <div className='healths'>
+                    {
+                            details?.recipe?.healthLabels.map((text, index) =>{
+                                return(
+                                    <p key={index}>
+                                    <BsPatchCheck className='icon' /> {text}</p>
+                                )
+                        })
+                        }
+
+                    </div>
+                 </div>
+
             </div>
         </section>
     )

@@ -1,25 +1,24 @@
 import { useEffect, useState } from 'react';
 import './foodcard.css';
-import {pic1, pic2, pic3, pic4, pic5} from './exports';
 import { Link } from 'react-router-dom';
 import { FaRegClock, FaRegHeart } from 'react-icons/fa';
 import axios from 'axios';
 
-export const Card = ({image, heading, time, icon}) =>{
+export const Card = ({image, heading, time, point  }) =>{
     return(
         <div className='foodcard'>
             <div className='imageHolder'>
                 <img src={image}/>
             </div>
             <div className='cardContent'>
-            <Link to={'/recipe/3'}> <p className='cardHead'>{heading}</p> </Link>
+             <p className='cardHead'>{heading}</p> 
                 <div className='cardbuttom'>
                     <div className='flex'>
                         <FaRegClock />
                         <p>{time} mins</p>
                     </div>
                     
-                    <FaRegHeart color='gray'/>
+                    <p>{point}</p>
                 </div>
             </div>
         </div>
@@ -45,7 +44,7 @@ export const Card = ({image, heading, time, icon}) =>{
                            setit(response.data.hits);
                              
                         } catch (error) {
-                            console.error('Error fetching recipes', error);
+                            console.log('Error fetching recipes', error);
                         }
                     }
 
@@ -70,35 +69,37 @@ export const Card = ({image, heading, time, icon}) =>{
                 <div className= {activeTab === "random" ? 'flexfoodlist active' : 'flexfoodlist hide'} >
 
                     {recipes.map((info) => (
-                        <Card image={info.recipe.image} heading={info.recipe.label} key={info.recipe.url} time={info.recipe.totalTime}/>
+
+                        <Link to={`/recipe/${encodeURIComponent(info.recipe.uri.split('_')[1])}`}> <Card image={info.recipe.image} heading={info.recipe.label} key={info.recipe.url} time={info.recipe.totalTime} point={info.recipe.mealType}/></Link>
+                   
                     ))}
                    
                 </div>
                 <div className={activeTab === "breakfast" ? 'flexfoodlist active' : 'flexfoodlist hide'}>
 
                     {recipes.map((info) => (
-                        <Card image={info.recipe.image} heading={info.recipe.label} time={info.recipe.totalTime} key={info.recipe.url}/>
+                        <Link to={`/recipe/${encodeURIComponent(info.recipe.uri.split('_')[1])}`}><Card image={info.recipe.image} heading={info.recipe.label} time={info.recipe.totalTime} key={info.recipe.url} point={info.recipe.mealType}/></Link>
                     ))}
 
                 </div>
                 <div className={activeTab === "launch" ? 'flexfoodlist active' : 'flexfoodlist hide'}>
 
                     {recipes.map((info) => (
-                        <Card image={info.recipe.image} time={info.recipe.totalTime} heading={info.recipe.label} key={info.recipe.url}/>
+                        <Link to={`/recipe/${encodeURIComponent(info.recipe.uri.split('_')[1])}`} ><Card image={info.recipe.image} time={info.recipe.totalTime} heading={info.recipe.label} key={info.recipe.url} point={info.recipe.mealType}/></Link>
                     ))}
 
                 </div>
                 <div className={activeTab === "dinner" ? 'flexfoodlist active' : 'flexfoodlist hide'}>
 
                     {recipes.map((info) => (
-                        <Card image={info.recipe.image} time={info.recipe.totalTime} heading={info.recipe.label} key={info.recipe.url}/>
+                        <Link to={`/recipe/${encodeURIComponent(info.recipe.uri.split('_')[1])}`}><Card image={info.recipe.image} time={info.recipe.totalTime} heading={info.recipe.label} key={info.recipe.url} point={info.recipe.mealType}/></Link>
                     ))}
 
                 </div>
                 <div className={activeTab === "tea" ? 'flexfoodlist active' : 'flexfoodlist hide'}>
 
                     {recipes.map((info) => (
-                        <Card image={info.recipe.image} time={info.recipe.totalTime} heading={info.recipe.label} key={info.recipe.url}/>
+                        <Link to={`/recipe/${encodeURIComponent(info.recipe.uri.split('_')[1])}`}><Card image={info.recipe.image} time={info.recipe.totalTime} heading={info.recipe.label} key={info.recipe.url} point={info.recipe.mealType}/></Link>
                     ))}
                     
                 </div>
@@ -109,7 +110,7 @@ export const Card = ({image, heading, time, icon}) =>{
                 <div className='flexfoodlist'>
 
                     {nigerianrecipe.map((info) => (
-                        <Card image={info.recipe.image} heading={info.recipe.label} key={info.recipe.url} time={info.recipe.totalTime}/>
+                        <Link to={`/recipe/${encodeURIComponent(info.recipe.uri.split('_')[1])}`}><Card image={info.recipe.image} heading={info.recipe.label} key={info.recipe.url} time={info.recipe.totalTime} point={info.recipe.mealType}/></Link>
                     ))} 
 
                 </div>
@@ -120,7 +121,7 @@ export const Card = ({image, heading, time, icon}) =>{
                 <div className='flexfoodlist'>
 
                         {africanrecipes.map((recipesinfo) => (
-                            <Card time={recipesinfo.recipe.totalTime} image={recipesinfo.recipe.image} heading={recipesinfo.recipe.label} key={recipesinfo.recipe.url}/>
+                            <Link to={`/recipe/${encodeURIComponent(recipesinfo.recipe.uri.split('_')[1])}`}><Card time={recipesinfo.recipe.totalTime} image={recipesinfo.recipe.image} heading={recipesinfo.recipe.label} key={recipesinfo.recipe.url} point={recipesinfo.recipe.mealType}/></Link>
                         ))}
 
                 </div>
@@ -130,7 +131,7 @@ export const Card = ({image, heading, time, icon}) =>{
                 <h1>Intercontinental Dishes</h1>
                 <div className='flexfoodlist'>
                     {worldrecipes.map((info) => (
-                        <Card image={info.recipe.image} heading={info.recipe.label} key={info.recipe.url} time={info.recipe.totalTime}/>
+                        <Link to={`/recipe/${encodeURIComponent(info.recipe.uri.split('_')[1])}`}><Card image={info.recipe.image} heading={info.recipe.label} key={info.recipe.url} time={info.recipe.totalTime} point={info.recipe.mealType}/></Link>
                     ))} 
                 </div>
             </div>

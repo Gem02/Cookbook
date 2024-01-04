@@ -1,5 +1,6 @@
 import './footer.css';
-import { FaGoogle, FaFacebook, FaGithub } from 'react-icons/fa'
+import { FaGoogle, FaFacebook, FaGithub } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 
 const Footer = () =>{
@@ -16,9 +17,9 @@ const Footer = () =>{
                         </div>
                         
                     <div className='flex recipes'>
-                        <p>All recipes</p>
-                        <p>Easy recipes</p>
-                        <p>Difficult recipes</p>
+                        <Link to={'/recipes/'}>All recipes</Link>
+                        <Link to={'/recipes/easy'}>Easy recipes</Link>
+                        <Link to={'/recipes/difficult'}>Difficult recipes</Link>
                     </div>
                     <div className="buttom">
                         <a href="https://www.facebook.com/profile.php?id=100057955494388" ><FaFacebook className='iconfa'/></a>
