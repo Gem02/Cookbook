@@ -1,6 +1,6 @@
 .alllistSec{
     padding-top: 80px;
-    min-height: 100dvh;
+    height: calc(100% - 60px);
 }
 .alllistSec .title h1{
     color: var(--primary);
